@@ -1,0 +1,41 @@
+CREATE DATABASE bd5;
+USE bd5;
+
+create table alunos (
+ id int auto_increment primary key,
+ nome varchar (255),
+ idade int (3),
+ nascimento date default NULL
+);
+
+-- inserir dados
+insert into alunos (nome, idade, nascimento) values ('Vitor', 21, '2001-01-29');
+insert into alunos (nome, idade, nascimento) values ('De Paula', 25, '1997-05-24');
+insert into alunos (nome, idade, nascimento) values ('Vitoria', 22, '1999-03-17');
+insert into alunos (nome, idade, nascimento) values ('Juliany', 21, '1996-04-24');
+insert into alunos (nome, idade, nascimento) values ('Cleusa', NULL, NULL);
+
+-- selecionar todos os registros
+select * from alunos;
+
+-- selecionar somente um campo
+select nome, nascimento from alunos;
+
+-- filtrar por campo idade igual nulo
+select * from alunos
+where idade is null;
+
+-- filtrar por campo de idade não nulo e nome igual a 'Vitor'
+select * from alunos
+where idade is not null -- idade não nulo
+AND 
+nome = 'Vitor' -- nome igual 'Vitor'
+;
+
+-- filtrar ignorando registros duplicados
+select distinct nome
+from alunos;
+
+select distinct nome, idade
+from alunos;
+
